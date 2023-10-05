@@ -146,5 +146,6 @@ static BOOL writeImageAsPNG(CGImageRef image, NSString *path)
 
 static BOOL writeData(NSData *data, NSString *path)
 {
+    mkdir_p([path stringByDeletingLastPathComponent]);
     return [(data ?: [NSData data]) writeToFile:path atomically:YES];
 }
