@@ -116,9 +116,6 @@ static void mkdir_p(NSString *path)
 static NSString * getUTFileExtension(NSString *identifier)
 {
     if (identifier) {
-        // sometimes the identifier has a zero-width space in it for some reason
-        identifier = [identifier stringByReplacingOccurrencesOfString:@"​" withString:@""];
-
         UTType *type = [UTType typeWithIdentifier:identifier];
         if (type) {
             return type.preferredFilenameExtension;
